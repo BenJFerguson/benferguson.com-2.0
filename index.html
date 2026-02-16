@@ -53,18 +53,12 @@
 
     /* HERO */
     header.hero {
-      position: relative;
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       background: linear-gradient(180deg, var(--pale-sand) 0%, var(--mist-blue) 100%);
-    }
-
-    .hero-content {
-      max-width: 800px;
     }
 
     .hero-title {
@@ -91,13 +85,13 @@
 
     .cta-button {
       background: var(--deep-ocean);
-      color: var(--pearl);
+      color: var(--text-light);
       padding: 1rem 3rem;
       border-radius: 999px;
       font-weight: 600;
-      transition: 0.3s;
+      border: none;
       cursor: pointer;
-      border: 2px solid transparent;
+      transition: 0.3s;
     }
 
     .cta-button:hover {
@@ -105,9 +99,10 @@
       color: var(--deep-ocean);
     }
 
-    [data-theme="dark"] .cta-button {
-      background: var(--seafoam);
-      color: var(--deep-ocean);
+    /* ensure CTA text stays light in dark theme */
+    [data-theme="dark"] .cta-button,
+    [data-theme="dark"] .cta-button:hover {
+      color: var(--text-light);
     }
 
     /* NAV */
@@ -115,7 +110,6 @@
       padding: 5rem 1rem;
       display: flex;
       justify-content: center;
-      background: var(--pearl);
     }
 
     .nav-container {
@@ -140,6 +134,12 @@
       color: var(--deep-ocean);
     }
 
+    /* ensure nav pills remain readable in dark theme */
+    [data-theme="dark"] .nav-pill,
+    [data-theme="dark"] .nav-pill:hover {
+      color: var(--text-light);
+    }
+
     /* SECTION BASE */
     .section {
       padding: 6rem 1rem;
@@ -150,14 +150,6 @@
     .section-header {
       text-align: center;
       margin-bottom: 3rem;
-    }
-
-    .section-header h2 {
-      color: var(--deep-ocean);
-    }
-
-    [data-theme="dark"] .section-header h2 {
-      color: var(--text-light);
     }
 
     .section-line {
@@ -174,7 +166,7 @@
       height: 180px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
     /* CARDS */
@@ -185,11 +177,11 @@
     }
 
     .card {
-      background: white;
+      background: #ffffff;
       border-radius: 24px;
       padding: 2rem;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(68, 106, 119, 0.1);
+      box-shadow: 0 10px 30px rgba(68,106,119,0.1);
     }
 
     [data-theme="dark"] .card {
@@ -207,47 +199,27 @@
       font-weight: 800;
     }
 
-    .badge-yellow {
-      background: #F4D03F;
-    }
-    .badge-green {
-      background: #2ECC71;
-      color: #fff;
-    }
-    .badge-black {
-      background: #2C3E50;
-      color: #fff;
-    }
+    .badge-yellow { background: #F4D03F; }
+    .badge-green { background: #2ECC71; color: #fff; }
+    .badge-black { background: #2C3E50; color: #fff; }
 
-    .card p {
-      color: #333;
-    }
-
-    [data-theme="dark"] .card p {
-      color: #ddd;
-    }
-
-    .card a.simple-link {
+    .simple-link {
       text-decoration: underline;
       color: var(--deep-ocean);
       display: inline-block;
       margin-top: 1rem;
     }
 
-    [data-theme="dark"] .card a.simple-link {
-      color: var(--seafoam);
+    /* ensure simple links remain readable in dark theme */
+    [data-theme="dark"] .simple-link,
+    [data-theme="dark"] .simple-link:hover {
+      color: var(--text-light);
     }
 
     /* CONTACT */
     .contact-section {
       text-align: center;
       padding: 5rem 1rem;
-      background: white;
-    }
-
-    [data-theme="dark"] .contact-section {
-      background: #18292f;
-      color: var(--text-light);
     }
 
     .contact-btn {
@@ -256,17 +228,7 @@
       border-radius: 12px;
       margin: 0.5rem;
       display: inline-block;
-      color: var(--deep-ocean);
       transition: 0.2s;
-    }
-
-    .contact-btn:hover {
-      border-color: var(--deep-ocean);
-    }
-
-    [data-theme="dark"] .contact-btn {
-      color: var(--text-light);
-      border-color: var(--seafoam);
     }
 
     footer {
@@ -276,16 +238,12 @@
       color: #555;
     }
 
-    [data-theme="dark"] footer {
-      color: #bbb;
-    }
-
     /* MODAL */
     .modal {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0,0,0,0.8);
       align-items: center;
       justify-content: center;
       z-index: 10000;
@@ -295,37 +253,24 @@
       display: flex;
     }
 
-    .resume-modal .modal-content {
-      background: white;
+    .modal-content {
+      background: #ffffff;
       width: 90%;
       height: 90%;
+      max-width: 1200px;
       border-radius: 12px;
-      overflow: hidden;
       display: flex;
       flex-direction: column;
-      max-width: 1200px;
+      overflow: hidden;
     }
 
     .resume-header {
       background: var(--deep-ocean);
-      color: var(--text-light);
+      color: #ffffff;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      font-weight: 600;
-    }
-
-    .resume-header button {
-      background: transparent;
-      border: none;
-      color: #fff;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .resume-body {
-      flex: 1;
     }
 
     .resume-body embed {
@@ -333,131 +278,130 @@
       height: 100%;
       border: none;
     }
-
-    @media (max-width: 768px) {
-      #about div {
-        text-align: center;
-      }
-    }
   </style>
 </head>
 
 <body>
-  <header class="hero">
-    <div class="hero-content">
-      <h1 class="hero-title">Ben Ferguson</h1>
-      <h2 class="hero-subtitle">Supply Chain | Procurement | Process Optimization</h2>
-      <p class="hero-tagline">Building connections, creating value.</p>
-      <button class="cta-button" onclick="document.getElementById('nav').scrollIntoView({behavior:'smooth'})">View My Work</button>
-    </div>
-  </header>
 
-  <nav id="nav" class="nav-section">
-    <div class="nav-container">
-      <a href="#about" class="nav-pill">About Me</a>
-      <a href="#projects" class="nav-pill">Projects / Certifications</a>
-      <a href="#!" id="resumeLink" class="nav-pill">Resume</a>
-      <a href="https://linkedin.com/in/benjamin-ferguson-03186426b" class="nav-pill" target="_blank">LinkedIn</a>
-      <a href="#contact" class="nav-pill">Contact</a>
-    </div>
-  </nav>
+<header class="hero">
+  <div>
+    <h1 class="hero-title">Ben Ferguson</h1>
+    <h2 class="hero-subtitle">Supply Chain | Procurement | Process Optimization</h2>
+    <p class="hero-tagline">Building connections, creating value.</p>
+    <button class="cta-button" onclick="document.getElementById('nav').scrollIntoView({ behavior: 'smooth' })">
+      View My Work
+    </button>
+  </div>
+</header>
 
-  <!-- ABOUT SECTION -->
-  <section id="about" class="section" style="text-align:center;">
-    <div class="section-header">
-      <h2>About Me</h2>
-      <div class="section-line"></div>
-    </div>
+<nav id="nav" class="nav-section">
+  <div class="nav-container">
+    <a href="#about" class="nav-pill">About Me</a>
+    <a href="#projects" class="nav-pill">Projects and Certifications</a>
+    <a href="#" id="resumeLink" class="nav-pill">Resume</a>
+    <a href="https://linkedin.com/in/benjamin-ferguson-03186426b" class="nav-pill" target="_blank">LinkedIn</a>
+    <a href="#contact" class="nav-pill">Contact</a>
+  </div>
+</nav>
 
-    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2rem;max-width:900px;margin:auto;">
-      <img src="headshot.jpg" alt="Ben Ferguson Headshot" />
-      <div style="max-width:500px;text-align:left;">
-        <p>
-          I am graduating in December 2026 with a major in Supply Chain Management and a minor in Data Analytics.
-          I currently work as a purchasing and procurement intern and am interested in project management and process improvement.
-        </p>
-        <p>
-          I love the idea of improving processes by increasing efficiency, quality, and consistency. I also enjoy learning new skills and being able 
-          to implement them into my professional and personal life.
-        </p>
-        <p>
-          Outside of work and school, discipline, fitness, independence, and creativity shape how I operate. I value individuality 
-          and approach problems with a mindset that prioritizes clarity and execution.
-        </p>
-        <p>This portfolio reflects my work, mindset, and direction.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="section">
-    <div class="section-header">
-      <h2>Lean Six Sigma</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="cards-grid">
-      <div class="card">
-        <div class="badge-icon badge-yellow">YB</div>
-        <h3>Yellow Belt</h3>
-        <p>Foundational Six Sigma knowledge focusing on mapping and simple improvements.</p>
-      </div>
-      <div class="card">
-        <div class="badge-icon badge-green">GB</div>
-        <h3>Green Belt</h3>
-        <p>Advanced data analysis and waste‑reduction projects improving procurement flow.</p>
-        <a href="https://www.notion.so/Lean-Six-Sigma-Green-Belt-DMAIC-Process-Improvement-Analysis-2e9bb4204be6802da3f2ddb754dba401"
-           target="_blank" rel="noopener noreferrer" class="simple-link">
-           Open Green Belt Project on Notion ↗
-        </a>
-      </div>
-      <div class="card">
-        <div class="badge-icon badge-black">BB</div>
-        <h3>Black Belt (In Progress)</h3>
-        <p>Strategic optimization and cross‑functional leadership driving measurable savings.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="contact-section">
-    <h2>Let's Connect</h2>
-    <p style="margin-bottom:1rem;">Open to internship and full‑time opportunities from Dec 2026.</p>
-    <div>
-      <a href="mailto:benfergusoncollege@gmail.com" class="contact-btn">benfergusoncollege@gmail.com</a>
-      <a href="https://linkedin.com/in/benjamin-ferguson-03186426b" class="contact-btn" target="_blank">LinkedIn</a>
-      <button id="toggleTheme" class="contact-btn">Toggle Theme</button>
-    </div>
-  </section>
-
-  <footer>© 2024 Ben Ferguson | University of Arkansas</footer>
-
-  <!-- RESUME MODAL -->
-  <div id="resumeModal" class="modal resume-modal">
-    <div class="modal-content">
-      <div class="resume-header">
-        <span>📄 Ben Ferguson – Resume</span>
-        <button id="closeResume">&times;</button>
-      </div>
-      <div class="resume-body">
-        <embed src="BenFergusonResume.pdf" type="application/pdf" />
-      </div>
-      <div style="text-align:center; padding:1rem;">
-        <a href="BenFergusonResume.pdf" download class="cta-button">Download PDF</a>
-      </div>
-    </div>
+<section id="about" class="section" style="text-align:center;">
+  <div class="section-header">
+    <h2>About Me</h2>
+    <div class="section-line"></div>
   </div>
 
-  <script>
-    const resumeModal = document.getElementById('resumeModal');
-    document.getElementById('resumeLink').onclick = () => resumeModal.classList.add('active');
-    document.getElementById('closeResume').onclick = () => resumeModal.classList.remove('active');
-    resumeModal.onclick = e => {
-      if (e.target === resumeModal) resumeModal.classList.remove('active');
-    };
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;max-width:900px;margin:auto;">
+    <img src="headshot.jpg" alt="Ben Ferguson Headshot" />
+    <div style="max-width:500px;text-align:left;">
+      <p>I am graduating in December 2026 with a major in Supply Chain Management and a minor in Data Analytics.</p>
+      <p>I currently work as a purchasing and procurement intern and am interested in project management and process improvement.</p>
+      <p>This portfolio reflects my work, mindset, and direction.</p>
+    </div>
+  </div>
+</section>
 
-    document.getElementById('toggleTheme').onclick = () => {
-      document.body.dataset.theme = (document.body.dataset.theme === 'dark' ? 'light' : 'dark');
-    };
-  </script>
+<section id="projects" class="section">
+  <div class="section-header">
+    <h2>Lean Six Sigma</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="cards-grid">
+    <div class="card">
+      <div class="badge-icon badge-yellow">YB</div>
+      <h3>Yellow Belt</h3>
+      <p>Foundational Six Sigma knowledge focusing on mapping and simple improvements.</p>
+      <a href="yellow-belt-cert.png" target="_blank" rel="noopener noreferrer">
+        <img src="yellow-belt-cert.png" alt="Lean Six Sigma Yellow Belt certificate" style="max-width:220px;height:auto;border-radius:12px;margin-top:1rem;display:block;margin-left:auto;margin-right:auto;" />
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="badge-icon badge-green">GB</div>
+      <h3>Green Belt</h3>
+      <p>Advanced data analysis and waste reduction projects improving procurement flow.</p>
+      <a href="green-belt-cert.png" target="_blank" rel="noopener noreferrer">
+        <img src="green-belt-cert.png" alt="Lean Six Sigma Green Belt certificate" style="max-width:220px;height:auto;border-radius:12px;margin-top:1rem;display:block;margin-left:auto;margin-right:auto;" />
+      </a>
+      <a class="simple-link" href="https://www.notion.so/Lean-Six-Sigma-Green-Belt-DMAIC-Process-Improvement-Analysis-2e9bb4204be6802da3f2ddb754dba401" target="_blank">
+        Open Green Belt Project
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="badge-icon badge-black">BB</div>
+      <h3>Black Belt (In Progress)</h3>
+      <p>Strategic optimization and cross functional leadership.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <h2>Lets Connect</h2>
+  <p>Open to internship and full time opportunities from December 2026.</p>
+  <div>
+    <a href="mailto:benfergusoncollege@gmail.com" class="contact-btn">Email</a>
+    <a href="https://linkedin.com/in/benjamin-ferguson-03186426b" class="contact-btn" target="_blank">LinkedIn</a>
+    <button id="toggleTheme" class="contact-btn">Toggle Theme</button>
+  </div>
+</section>
+
+<footer>
+  (c) 2024 Ben Ferguson | University of Arkansas
+</footer>
+
+<div id="resumeModal" class="modal">
+  <div class="modal-content">
+    <div class="resume-header">
+      <span>Ben Ferguson - Resume</span>
+      <button id="closeResume">X</button>
+    </div>
+    <div class="resume-body">
+      <embed src="BenFergusonResume.pdf" type="application/pdf" />
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById("resumeModal");
+
+  document.getElementById("resumeLink").onclick = function () {
+    modal.classList.add("active");
+  };
+
+  document.getElementById("closeResume").onclick = function () {
+    modal.classList.remove("active");
+  };
+
+  modal.onclick = function (e) {
+    if (e.target === modal) modal.classList.remove("active");
+  };
+
+  document.getElementById("toggleTheme").onclick = function () {
+    document.body.dataset.theme =
+      document.body.dataset.theme === "dark" ? "light" : "dark";
+  };
+</script>
+
 </body>
 </html>

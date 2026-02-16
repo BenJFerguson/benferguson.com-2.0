@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" role="img" aria-label="Ben Ferguson">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#548CA8"/>
+      <stop offset="1" stop-color="#2C3E50"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" rx="24" fill="transparent"/>
+  <circle cx="90" cy="90" r="86" fill="url(#g)"/>
+  <text x="50%" y="54%" font-family="Montserrat, Poppins, sans-serif" font-size="56" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">BF</text>
+</svg>
